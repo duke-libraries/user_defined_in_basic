@@ -22,16 +22,12 @@ Or if you are after a particular release, download and unzip it from here:
 https://github.com/hudmol/user_defined_in_basic/releases
 
 
-## How to configure it
+## How to configure it (DUKE-SPECIFIC)
 
 Add an entry to your `config.rb` like this:
 
-     AppConfig[:user_defined_in_basic] = {
-       'accessions' => ['boolean_1', 'enum_2', 'real_2'],
-       'digital_objects' => [],
-       'resources' => ['string_2', 'date_1', 'boolean_1'],
-       'hide_user_defined_section' => true
-     }
+      AppConfig[:user_defined_in_basic] = {'accessions' => ['boolean_1','text_1','enum_3','date_1','enum_2','enum_1','integer_1','integer_2','real_1','boolean_2','text_2'],'hide_user_defined_section' => true }
+
 
 If you don't have a `:user_defined_in_basic` entry the plugin won't do anything.
 It will log a warning at startup.
@@ -41,11 +37,6 @@ record types that can have a `user_defined` subrecord. For each key specified
 a `user_defined` subrecord will be automatically added when a new record
 is created through the staff UI, or will be added to an existing record when
 it is edited if it doesn't already have one. Also, the remove button is disabled.
-
-So, in the example shown, no fields are moved to the `Basic Information` section
-for `digital_objects` (because the field list is empty), but the presence of the
-`digital_objects` key guarantees the addition of a `user_defined` subrecord. To
-disable this behavior, simply remove the key.
 
 For each record type, specify a list of `user_defined` fields that you would like
 to see in the `Basic Information`. The fields specified will be moved to the
